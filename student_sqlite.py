@@ -1,4 +1,4 @@
-import re, sqlite3, student_file
+import sqlite3, student_file
 
 
 # データベースを開く
