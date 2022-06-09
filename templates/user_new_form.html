@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+<h3>新しいユーザー情報を入力してください：</h3>
+
+<div class="form-group text-center space">
+    <form action="/user/new/try" method="POST">
+        <div class="mb-3">
+            <label id="user_id">管理番号　　</label>
+            <input name="user_id" id="user_id" placeholder="5桁の管理番号" pattern="\d{5}"
+                   title="数字5桁でご入力ください。" required>
+            <small class="form-text text-muted">
+                ※ 管理番号は10000~99999の数字のみ
+            </small><br>
+        </div>
+
+        <div class="mb-3">
+            <label id="name">名前　　　　</label>
+            <input type="text" name="name" id="name" placeholder="フルネーム" maxlength="35" required>
+            <small class="form-text text-muted">
+                ※ 英語、日本語で35文字まで
+            </small><br>
+        </div>
+        <div class="mb-3">
+            <label id="username">ユーザー名　</label>
+            <input type="text" name="username" id="username" placeholder="ユーザー名" pattern="^[0-9A-Za-z]+$"
+                   title="英字と数字のみ" required>
+            <small class="form-text text-muted">
+                ※ ユーザー名は英字と数字のみ
+            </small><br>
+        </div>
+
+        <div class="mb-3">
+            <label for="pw">パスワード　</label>
+            <input type="password" name="pw" id="pw" placeholder="パスワード" minlength="4" maxlength="8" required>
+            <small class="form-text text-muted">
+                ※ パスワードは4~8文字
+            </small><br>
+        </div>
+
+        <div class="mb-3">
+            当てはまる身分を選んでください：
+        <div class="form-check"><br>
+          <input class="form-check-input" type="radio" name="power" id="teacher" value="1" checked>
+          <label class="form-check-label" for="teacher">
+            講師
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="power" id="student" value="2">
+          <label class="form-check-label" for="student">
+            学生
+          </label>
+        </div><br>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            登録
+        </button>　
+        <a href="/" class="btn btn-secondary">キャンセル</a>
+    </form>
+</div>
+{% endblock %}

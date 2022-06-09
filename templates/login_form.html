@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+<div style="text-align:center;"><br>
+<h4>ログインしてください：</h4><br>
+<div class="form-group">
+    <form action="/login/try" method="POST">
+        <div class="form-group">
+        <label id="user">ユーザー名　</label>
+        <input type="text" name="user" id="user" placeholder="ユーザー名" pattern="^[0-9A-Za-z]+$"
+                   title="英字と数字のみ" required>
+        <small class="form-text text-muted">
+            ※ ユーザー名は英字と数字のみ
+        </small><br>
+        <label for="pw">パスワード　</label>
+        <input type="password" name="pw" id="pw" placeholder="パスワード"required>
+        <small class="form-text text-muted">
+            ※ パスワードは4~8文字
+        </small><br>
+        <button type="submit" class="btn btn-primary">
+            ログイン
+        </button>
+        </div><br>
+    </form>
+</div>
+<div class="box">
+    <p>以下より新しいユーザーを追加できます。</p>
+    <a class="btn btn-info" href="/user/new" role="button">➝新規ユーザーを追加</a>
+</div>
+
+</div>
+{% endblock %}

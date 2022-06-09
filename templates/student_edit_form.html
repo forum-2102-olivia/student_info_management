@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+<h3>学生情報を編集する：</h3><br>
+<div class="form-group text-center space">
+    <form action="/student/edit/try" method="POST">
+        {% for i in students %}
+        <div class="mb-3">
+            <label id="student_id">学籍番号　</label>
+            <input name="student_id" id="student_id" value="{{ i.student_id }}" readonly="readonly">
+            <small class="form-text text-muted">
+                ※ 学籍番号は変更できない
+            </small><br>
+        </div>
+
+        <div class="mb-3">
+            <label id="call_name">名前　　　</label>
+            <input name="call_name" id="call_name" placeholder="コールネーム" maxlength="35" pattern="[\u30A1-\u30FC]*"
+                   value="{{ i.call_name }}" title="全角カタカナでご入力ください。" required>
+            <small class="form-text text-muted">
+                ※ 全角カタカナのみ
+            </small><br>
+        </div>
+        <div class="mb-3">
+            <label id="country">出身国　　</label>
+            <input type="text" name="country" id="country" placeholder="出身国" value="{{ i.country }}">
+            <small class="form-text text-muted">
+                ※ 不明なら今後追加で入力できる
+            </small><br>
+        </div>
+
+        <div class="mb-3">
+            <label for="visa_expiry">在留期限　　　　</label>
+            <input type="date" name="visa_expiry" id="visa_expiry" value="{{ i.visa_expiry }}">
+            <small class="form-text text-muted">
+                ※ 不明なら今後追加で入力できる
+            </small><br>
+        </div>
+        <div class="mb-3">
+            <label for="memo">備考　　　</label>
+            <input type="text" name="memo" id="memo" placeholder="備考" value="{{ i.memo }}">
+            <small class="form-text text-muted">
+                ※ 特になければ空欄のまま
+            </small><br>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            更新
+        </button>　　
+        <a href="/" class="btn btn-secondary">キャンセル</a>
+        {% endfor %}
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+<h3>新しい学生情報を入力してください：</h3><br>
+
+<div class="form-group text-center space">
+    <form action="/student/new/try" method="POST">
+        <div class="mb-3">
+            <label id="student_id">学籍番号　</label>
+            <input name="student_id" id="student_id" placeholder="3桁の学籍番号" pattern="\d{3}"
+                   title="数字3桁でご入力ください。" required>
+            <small class="form-text text-muted">
+                ※ 学籍番号は100~999の数字のみ
+            </small><br>
+        </div>
+
+        <div class="mb-3">
+            <label id="call_name">名前　　　</label>
+            <input name="call_name" id="call_name" placeholder="コールネーム" maxlength="35" pattern="[\u30A1-\u30FC]*"
+                   title="全角カタカナでご入力ください。" required>
+            <small class="form-text text-muted">
+                ※ 全角カタカナのみ
+            </small><br>
+        </div>
+        <div class="mb-3">
+            <label id="country">出身国　　</label>
+            <input type="text" name="country" id="country" placeholder="出身国">
+            <small class="form-text text-muted">
+                ※ 不明なら今後追加で入力できる
+            </small><br>
+        </div>
+
+        <div class="mb-3">
+            <label for="visa_expiry">在留期限　　　　</label>
+            <input type="date" name="visa_expiry" id="visa_expiry">
+            <small class="form-text text-muted">
+                ※ 不明なら今後追加で入力できる
+            </small><br>
+        </div>
+        <div class="mb-3">
+            <label for="memo">備考　　　</label>
+            <input type="text" name="memo" id="memo" placeholder="備考">
+            <small class="form-text text-muted">
+                ※ 特になければ空欄のまま
+            </small>
+        </div><br><br>
+        <button type="submit" class="btn btn-primary">
+            登録
+        </button>　　
+        <a href="/" class="btn btn-secondary">キャンセル</a>
+    </form>
+</div>
+{% endblock %}

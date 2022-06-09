@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+<h3>ユーザー情報を編集する：</h3><br>
+<div class="form-group text-center space">
+    <form action="/user/edit/try" method="POST">
+        <label id="user_id">管理番号　　</label>
+        <input type="text" name="user_id" id="user_id" placeholder="管理番号" value="{{ user_id }}" pattern="\d{5}"
+                   title="数字5桁でご入力ください。" required>
+        <small class="form-text text-muted">
+            ※ 管理番号は10000~99999の数字のみ
+        </small><br>
+
+        <label id="name">名前　　　　</label>
+        <input type="text" name="name" id="name" placeholder="フルネーム" value="{{ name }}" maxlength="35" required>
+        <small class="form-text text-muted">
+            ※ 英語、日本語で35文字まで
+        </small><br>
+
+        <label id="username">ユーザー名　</label>
+        <input type="text" name="username" id="username" placeholder="ユーザー名" value="{{ username }}"
+               pattern="^[0-9A-Za-z]+$" title="英字と数字のみ" required>
+        <small class="form-text text-muted">
+            ※ ユーザー名は英字と数字のみ
+        </small><br>
+
+        <label for="pw">パスワード　</label>
+        <input type="password" name="pw" id="pw" placeholder="パスワード" value="{{ password }}" minlength="4"
+               maxlength="8" required>
+        <small class="form-text text-muted">
+            ※ パスワードは4~8文字
+        </small><br><br>
+        <button type="submit" class="btn btn-primary">
+            更新
+        </button>　　
+        <a href="/" class="btn btn-secondary">キャンセル</a>
+    </form>
+</div>
+<br>
+{% endblock %}
