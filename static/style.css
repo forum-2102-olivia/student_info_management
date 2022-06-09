@@ -1,0 +1,32 @@
+body {
+    margin: 10px;
+    background-color: aliceblue;
+}
+
+div.space {
+    margin-top: 60px;
+}
+
+div.left {
+    margin-left: 40px;
+}
+
+a {
+  font-size:15px;
+}
+
+.table > thead > tr > th{
+    border:1px solid black;
+    vertical-align: middle;
+}
+
+.table > tbody > tr > td{
+    border:1px solid black;
+    vertical-align: middle;
+}
+
+.box {
+  padding: 8px;
+  margin: 4px;
+  border-top: 1px solid #909090;
+}
