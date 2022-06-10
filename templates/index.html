@@ -51,7 +51,7 @@
                 function disp(){
                     // 「OK」時の処理開始 ＋ 確認ダイアログの表示
                     if(window.confirm('削除しますか？')){
-                        window.alert('学籍番号 {{ i.student_id }}を削除しました。');
+                        window.alert('学籍番号{{ i.student_id }}を削除しました。');
                         location.href = "/student/delete/{{ i.student_id }}/try";
                     }
                     // 「OK」時の処理終了
